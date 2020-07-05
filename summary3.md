@@ -34,4 +34,8 @@ sudo apt-get update to refresh the list of packages
 sudo apt-get install gcc-5
 ```
 
+* After updating, I ran example which gave segmentation error message.
+
+
+
 
