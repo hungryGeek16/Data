@@ -114,7 +114,7 @@ int main()
 
 * Ran ```make all``` in caffe main directory. Hencce it created ssd.bin in build/example/cpp_classification/
 
-* Ran this command ```./ssd.bin```  and the output said there's no detected in the image and the inference took 1.16363 ms which is dobule the time taken in python.
+* Ran this command ```./ssd.bin```  and the output said there's no detection found in the image and the inference took 1.16363 ms which is dobule the time taken in python.
 
 * At the end it prints some gibberish lines which it calls **MEMORY_MAPS*..
 
