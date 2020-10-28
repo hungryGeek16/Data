@@ -110,11 +110,11 @@ int main()
   return 0;
 }
 ```
-* This is the file used for inference which I pasted in caffe/examples/cpp_classification/
+* This is the file used for inference which I pasted in caffe/examples/cpp_classification/ with name ssd.cpp .
 
-* Ran ```make all``` in caffe main directory.
+* Ran ```make all``` in caffe main directory. Hencce it created ssd.bin in build/example/cpp_classification/
 
-* This gave the output which said there's no output detected in the image and the inference took 1.16363 ms which is dobule the time taken in python
+* Ran this command ```./ssd.bin```  and the output said there's no detected in the image and the inference took 1.16363 ms which is dobule the time taken in python.
 
 * At the end it prints some gibberish lines which it calls **MEMORY_MAPS*..
 
