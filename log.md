@@ -66,9 +66,9 @@ void Detector::Detect(string im_name)
 	{
 		for (int w = 0; w < cv_img.cols; ++w)
 		{
-			cv_img.at<cv::Vec3f>(cv::Point(w, h))[0] = float(cv_img.at<cv::Vec3b>(cv::Point(w, h))[0]) - float(254.5); // Subtracts 255-0.5 from channel 1, 0.5 is offset
-			cv_img.at<cv::Vec3f>(cv::Point(w, h))[1] = float(cv_img.at<cv::Vec3b>(cv::Point(w, h))[1]) - float(254.5); // Subtracts 255-0.5 from channel 2, 0.5 is offset
-			cv_img.at<cv::Vec3f>(cv::Point(w, h))[2] = float(cv_img.at<cv::Vec3b>(cv::Point(w, h))[2]) - float(254.5); // Subtracts 255-0.5 from channel 3, 0.5 is offset
+			cv_img.at<cv::Vec3f>(cv::Point(w, h))[0] = float(cv_img.at<cv::Vec3b>(cv::Point(w, h))[0]) / float(254.5); // Subtracts 255-0.5 from channel 1, 0.5 is offset
+			cv_img.at<cv::Vec3f>(cv::Point(w, h))[1] = float(cv_img.at<cv::Vec3b>(cv::Point(w, h))[1]) / float(254.5); // Subtracts 255-0.5 from channel 2, 0.5 is offset
+			cv_img.at<cv::Vec3f>(cv::Point(w, h))[2] = float(cv_img.at<cv::Vec3b>(cv::Point(w, h))[2]) / float(254.5); // Subtracts 255-0.5 from channel 3, 0.5 is offset
 
 		}
 	}
@@ -114,7 +114,7 @@ int main()
 
 * Ran ```make all``` in caffe main directory. Hencce it created ssd.bin in build/example/cpp_classification/
 
-* Ran this command ```./ssd.bin```  and the output said there's no detection found in the image and the inference took 1.16363 ms which is dobule the time taken in python.
+* Ran this command ```./ssd.bin```  and the output detections were found in the image but values were different and the inference took 1.16363 ms which is double the time taken in python.
 
 * At the end it prints some gibberish lines which it calls **MEMORY_MAPS*..
 
@@ -127,20 +127,17 @@ I1028 16:39:00.106077 13994 net.cpp:270] This network produces output detection_
 I1028 16:39:00.106252 13994 net.cpp:283] Network initialization done.
 I1028 16:39:00.113222 13994 upgrade_proto.cpp:77] Attempting to upgrade batch norm layers using deprecated params: /home/rahul/caffe-mask/ssd_final.caffemodel
 I1028 16:39:00.113268 13994 upgrade_proto.cpp:80] Successfully upgraded batch norm layers using deprecated params.
-I1028 16:39:00.841055 13994 detection_output_layer.cpp:282] Couldn't find any detections
  Time Using CPU: 1.16363
-*** Error in `./ssd.bin': double free or corruption (out): 0x00007ff59e1be010 ***
-======= Backtrace: =========
-/lib/x86_64-linux-gnu/libc.so.6(+0x777f5)[0x7ff5ccdd57f5]
-/lib/x86_64-linux-gnu/libc.so.6(+0x8038a)[0x7ff5ccdde38a]
-/lib/x86_64-linux-gnu/libc.so.6(cfree+0x4c)[0x7ff5ccde258c]
-/home/rahul/ssd/caffe/.build_release/examples/cpp_classification/../../lib/libcaffe.so.1.0.0-rc3(_ZN5boost6detail17sp_counted_impl_pIN5caffe12SyncedMemoryEE7disposeEv+0x12)[0x7ff5ce7d5cb2]
-/home/rahul/ssd/caffe/.build_release/examples/cpp_classification/../../lib/libcaffe.so.1.0.0-rc3(_ZN5boost6detail17sp_counted_impl_pIN5caffe4BlobIfEEE7disposeEv+0xa2)[0x7ff5ce705872]
-/home/rahul/ssd/caffe/.build_release/examples/cpp_classification/../../lib/libcaffe.so.1.0.0-rc3(_ZN5caffe16ConvolutionLayerIfED0Ev+0x428)[0x7ff5ce7b03f8]
-./ssd.bin(_ZN5boost6detail17sp_counted_impl_pIN5caffe3NetIfEEE7disposeEv+0x532)[0x404352]
+ *** Error in `./ssd.bin': munmap_chunk(): invalid pointer: 0x00007fed9d76f010 ***
+/lib/x86_64-linux-gnu/libc.so.6(+0x777f5)[0x7fedcc3867f5]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x1a8)[0x7fedcc3936e8]
+/home/rahul/ssd/caffe/.build_release/examples/cpp_classification/../../lib/libcaffe.so.1.0.0-rc3(_ZN5boost6detail17sp_counted_impl_pIN5caffe12SyncedMemoryEE7disposeEv+0x12)[0x7fedcdd86cb2]
+/home/rahul/ssd/caffe/.build_release/examples/cpp_classification/../../lib/libcaffe.so.1.0.0-rc3(_ZN5boost6detail17sp_counted_impl_pIN5caffe4BlobIfEEE7disposeEv+0xa2)[0x7fedcdcb6872]
+/home/rahul/ssd/caffe/.build_release/examples/cpp_classification/../../lib/libcaffe.so.1.0.0-rc3(_ZN5caffe16ConvolutionLayerIfED0Ev+0x428)[0x7fedcdd613f8]
+./ssd.bin(_ZN5boost6detail17sp_counted_impl_pIN5caffe3NetIfEEE7disposeEv+0x532)[0x404472]
 ./ssd.bin[0x4025fa]
 ./ssd.bin[0x402415]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7ff5ccd7e840]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7fedcc32f840]
 ./ssd.bin[0x402519]
 ======= Memory map: ========
 00400000-00405000 r-xp 00000000 08:06 6560130                            /home/rahul/ssd/caffe/.build_release/examples/cpp_classification/ssd.bin
