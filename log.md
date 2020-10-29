@@ -53,6 +53,7 @@ void Detector::Detect(string im_name)
 
 	cv::Mat cv_img = cv::imread(im_name);  //Read image file
 	cv::cvtColor(cv_img, cv_img, cv::COLOR_BGR2RGB); //Change image format
+	cv_img.convertTo(cv_img,CV_32F); // imread reads the image in int format but for further calculations we need image to be float.
 	if (cv_img.empty())
 	{
 		std::cout << "Can not get the image file !" << endl;
@@ -60,8 +61,8 @@ void Detector::Detect(string im_name)
 	}
 
         
-        cv_img /= 255.0;
-	cv_img -= 0.5 ;
+        cv_img /= 255.0; //divde by 255
+	cv_img -= 0.5 ; // subtract offset 0.5
 
 	int height = int(cv_img.rows); //capture image height
 	int width = int(cv_img.cols); //capture image width
@@ -104,16 +105,47 @@ int main()
 
 * Ran ```make all``` in caffe main directory. Hencce it created ssd.bin in build/example/cpp_classification/
 
-* Ran this command ```./ssd.bin```  and the output detections are not found in the image and the inference took 1.16363 ms which is double the time taken in python.
+* Ran this command ```./ssd.bin```  and the output detections are found but in cpp it only finds 2 detections whereas in finds 4 detections and ground truth is also 4 detections.
 
-* **Log**:
+* The inference took 1.21901 ms which greater than time taken in python which is 0.76.
+
+* **Log from cpp**:
+```bash
+I1029 10:37:43.044219 17563 upgrade_proto.cpp:77] Attempting to upgrade batch norm layers using deprecated params: /home/rahul/caffe-mask/ssd_final.caffemodel
+I1029 10:37:43.044250 17563 upgrade_proto.cpp:80] Successfully upgraded batch norm layers using deprecated params.
+ Time Using CPU: 1.21901
+
+0 
+2 # predicted label for first detection
+0.99968  # predicted confidence for first detection
+0.426656 # xmin
+0.27332 #ymin
+0.526396  #xmax
+0.430169 #ymax
+0 
+2 # predicted label for first detection
+0.995123  # predicted confidence for first detection
+0.601631 # xmin
+0.199528 #ymin
+0.710229 #xmax
+0.38495 #ymax
+7.79875e-39 
+0 
+-7.1051e-34 
+4.58673e-41 
+1.11397e-35 
+0 
+0 
+```
+* **Log from python**:
+
 ```bash
 
-I1028 16:39:00.106056 13994 net.cpp:228] data_input_0_split does not need backward computation.
-I1028 16:39:00.106070 13994 net.cpp:228] input does not need backward computation.
-I1028 16:39:00.106077 13994 net.cpp:270] This network produces output detection_out
-I1028 16:39:00.106252 13994 net.cpp:283] Network initialization done.
-I1028 16:39:00.113222 13994 upgrade_proto.cpp:77] Attempting to upgrade batch norm layers using deprecated params: /home/rahul/caffe-mask/ssd_final.caffemodel
-I1028 16:39:00.113268 13994 upgrade_proto.cpp:80] Successfully upgraded batch norm layers using deprecated params.
- Time Using CPU: 1.16363
+I1029 10:44:16.291287 17831 upgrade_proto.cpp:80] Successfully upgraded batch norm layers using deprecated params.
+[*] Predict assets/image.jpg image.. 
+{'detection_out': array([[[[0.        , 2.        , 0.9998617 , 0.4246654 , 0.27943492,0.5274798 , 0.4283561 ],
+         [0.        , 2.        , 0.99984086, 0.60743713, 0.2034382 ,0.7110909 , 0.3792821 ],
+         [0.        , 2.        , 0.9974874 , 0.769586  , 0.10440747,0.88734215, 0.30089438],
+         [0.        , 2.        , 0.9838861 , 0.10643686, 0.07560761,0.20823473, 0.28588688]]]], dtype=float32)}
+Time taken for detections: 0.75697922706604
 ```
