@@ -105,7 +105,7 @@ int main()
 
 * Ran ```make all``` in caffe main directory. Hencce it created ssd.bin in build/example/cpp_classification/
 
-* Ran this command ```./ssd.bin```  and the output detections are found but in cpp it only finds 2 detections whereas in finds 4 detections and ground truth is also 4 detections.
+* Ran this command ```./ssd.bin```  and the output detections are found.
 
 * The inference took 1.21901 ms which greater than time taken in python which is 0.76.
 
@@ -122,6 +122,7 @@ I1029 10:37:43.044250 17563 upgrade_proto.cpp:80] Successfully upgraded batch no
 0.27332 #ymin
 0.526396  #xmax
 0.430169 #ymax
+
 0 
 2 # predicted label for first detection
 0.995123  # predicted confidence for first detection
@@ -129,13 +130,25 @@ I1029 10:37:43.044250 17563 upgrade_proto.cpp:80] Successfully upgraded batch no
 0.199528 #ymin
 0.710229 #xmax
 0.38495 #ymax
-7.79875e-39 
+
+### 3rd detection
+0
+2 
+0.996713 
+0.765845 
+0.107682 
+0.888089 
+0.300617 
+
+
+### 4th detection
 0 
--7.1051e-34 
-4.58673e-41 
-1.11397e-35 
-0 
-0 
+2 
+0.966352 
+0.108485 
+0.0765258 
+0.214637 
+0.282962 
 ```
 * **Log from python**:
 
