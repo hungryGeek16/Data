@@ -162,3 +162,6 @@ int main(int argc, char **argv)
 *  bboxes are pushed into other vectors individually.
 *  confs and classes are also put inside vectors.
 
+<p align="center">
+  <img src="yolo_data/yolo.jpg" width = 480>
+</p>
