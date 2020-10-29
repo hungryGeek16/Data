@@ -62,7 +62,6 @@ void Detector::Detect(string im_name)
 
         
         cv_img /= 255.0; //divde by 255
-	cv_img -= 0.5 ; // subtract offset 0.5
 
 	int height = int(cv_img.rows); //capture image height
 	int width = int(cv_img.cols); //capture image width
