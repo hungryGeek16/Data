@@ -1,8 +1,8 @@
 ## HOW TO RUN ARMCL on Raspberry Pi 3B+ 64 bit model
 
-* Download Raspbian 64 bit OS from [here]()
+* Download Raspbian 64 bit OS from [here](https://drive.google.com/file/d/1MwM2QMY27UgqK9WSUtmMKbYlK6b5oIlC/view?usp=sharing)
 
-* Follow this document to flash OS using [etcher]()
+* Follow this document to flash OS using [etcher](https://vitux.com/how-to-flash-burn-an-os-image-with-etcher-on-ubuntu/)
 
 * Now there are two ways to compile ARM Compute Library(armcl) , one is on native machine and other by cross compiling on Linux based machines:
 
