@@ -70,3 +70,9 @@ LD_LIBRARY_PATH=./build ./build/graph_alexnet \
 ## Issues:
 
 * Followed the same procedure for mobilenet also, but here it does'nt finds any detection, will have dug down more for insights.
+
+
+<p align="center">
+  <img src="im/3.png" width = 480>
+</p>
+
