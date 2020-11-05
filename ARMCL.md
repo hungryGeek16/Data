@@ -59,12 +59,12 @@ LD_LIBRARY_PATH=./build ./build/graph_alexnet \
 ### Results:
 
 <p align="center">
-  <img src="im/1.png" width = 480>
+  <img src="images/1.png" width = 480>
 </p>
 
 
 <p align="center">
-  <img src="im/2.png" width = 480>
+  <img src="images/2.png" width = 480>
 </p>
 
 ## Issues:
@@ -73,6 +73,6 @@ LD_LIBRARY_PATH=./build ./build/graph_alexnet \
 
 
 <p align="center">
-  <img src="im/3.png" width = 480>
+  <img src="images/3.png" width = 480>
 </p>
 
