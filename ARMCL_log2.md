@@ -26,3 +26,7 @@ scons arch=arm64-v8a benchmark=1 benchmark_tests=1 opencl=0 neon=1 debug=1 cppth
 5. Then agian transported the compiled library to rpi:
 
 6. But this time it gave me segmentation fault
+
+7. Made a seperate cpp program to inspect what input is being passed to the model, problem was in alexnet's example input data is somehow being converted to floating points but this was not case in mobilenet's example.
+
+8. As the image was read and fed to input layer, all the values inside the image were converting to zero. 
