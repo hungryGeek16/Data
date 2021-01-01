@@ -1,6 +1,6 @@
 ## HOW TO RUN ARMCL on Raspberry Pi 3B+ 64 bit model
 
-* Download Raspbian 64 bit OS from [here](https://drive.google.com/file/d/1MwM2QMY27UgqK9WSUtmMKbYlK6b5oIlC/view?usp=sharing)
+* Download Raspbian 64 bit OS from [here](https://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2020-05-28/2020-05-27-raspios-buster-arm64.zip)
 
 * Follow this document to flash OS using [etcher](https://vitux.com/how-to-flash-burn-an-os-image-with-etcher-on-ubuntu/)
 
