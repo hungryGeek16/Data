@@ -37,9 +37,9 @@
 
 * The same dataset of COCO Val 2014 which was used for SSD is used to test SSD Lite. There were total 38304 images where detections were made by ssd-lite
  
-<div align='center'>
-![mAP](/uploads/0b471314dc889d37abbba11da65a2030/mAP.png)
-</div>
+<p align="center">
+  <img src="images/TruevsFalse.png" width = 480>
+</p>
 
 **Note: Please open the above image in new tab for more clarity**
 
@@ -67,8 +67,8 @@
 
 ### 2. Total Number of True Positives and False Positives per class:
 
-<div align="center">
-![detection-results-info](/uploads/c8891c72ea3574faff22e46765c1e532/detection-results-info.png)
-</div>
+<p align="center">
+  <img src="images/ssdmAP.png" width = 480>
+</p>
 
 **Note: Please open the above image in new tab for more clarity**  
