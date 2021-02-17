@@ -104,3 +104,7 @@
 <p align="center">
   <img src="images/pan.jpg" width = 480>
 </p>
+
+<p align="center">
+  <img src="images/ssd6.jpg" width = 480>
+</p>
