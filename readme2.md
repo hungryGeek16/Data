@@ -29,11 +29,11 @@
 ### Source:[Link](https://arxiv.org/pdf/1512.02325.pdf)
 
 
-#### MobileNetV2SSDLite , COCO 2104 validation dataset results:
+## MobileNetV2SSDLite , COCO 2104 validation dataset results:
 
-# MobileNet-V2 SSD Lite detections Result:
+#### MobileNet-V2 SSD Lite detections Result:
 
-### 1. Class Wise mAP:
+##### 1. Class Wise mAP:
 
 * The same dataset of COCO Val 2014 which was used for SSD is used to test SSD Lite. There were total 38304 images where detections were made by ssd-lite
  
@@ -65,10 +65,42 @@
 19. hot dog
 20. hair-drier   
 
-### 2. Total Number of True Positives and False Positives per class:
+##### 2. Total Number of True Positives and False Positives per class:
 
 <p align="center">
   <img src="images/ssdmAP.png" width = 480>
 </p>
 
 **Note: Please open the above image in new tab for more clarity**  
+
+
+## Midv Card Dataset
+
+* The original training dataset image samples:
+
+
+<p align="center">
+  <img src="images/data.jpeg" width = 480>
+</p>
+
+* Test Results on **MobileNetV2SSDLite**:
+
+
+<p align="center">
+  <img src="images/aadhar.jpg" width = 480>
+</p>
+
+
+<p align="center">
+  <img src="images/pan3.jpg" width = 480>
+</p>
+
+
+<p align="center">
+  <img src="images/pan2.jpg" width = 480>
+</p>
+
+
+<p align="center">
+  <img src="images/pan.jpg" width = 480>
+</p>
