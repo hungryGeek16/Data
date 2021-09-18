@@ -15,7 +15,7 @@
 ### Step 1: To install tool chain type this command.
 
 ```bash
-sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabi g++-arm-linux-gnueabi binutils-arm-linux-gnueabi make
+sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabi g++-arm-linux-gnueabi binutils-arm-linux-gnueabi g++-aarch64-linux-gnu gcc-aarch64-linux-gnu make
 ```
 
 ### Step 2: Install scons for python3.
